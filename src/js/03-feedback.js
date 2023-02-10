@@ -17,8 +17,9 @@ const dataBackEnd = localStorage.getItem('feedback-form-state');
 
 buttonSubmit.addEventListener('click', onFormSubmit);
 
-function onFormSubmit() {
-  console.log(dataBackEnd); 
+function onFormSubmit(event) {
+  event.preventDefault();
+  console.log(JSON.parse(dataBackEnd)); 
   localStorage.removeItem('feedback-form-state');
   formValue.reset();
 };

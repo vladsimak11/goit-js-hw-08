@@ -13,7 +13,7 @@ function getValueTextArea(event) {
   localStorage.setItem("feedback-form-state", JSON.stringify(formDataSet));
 }
 
-buttonSubmit.addEventListener('click', onFormSubmit);
+buttonSubmit.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
@@ -25,7 +25,6 @@ function onFormSubmit(event) {
 
 function getValueLocalStorage() {
   const saveMessage = localStorage.getItem('feedback-form-state');
-  const formDataGet = JSON.parse(saveMessage);
 
   try {
     const formDataGet = JSON.parse(saveMessage);

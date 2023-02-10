@@ -2,7 +2,7 @@ import throttle from 'lodash.throttle';
 
 const formValue = document.querySelector('form');
 const buttonSubmit = document.querySelector('button');
-getValueLocalStorage();
+
 
 const formDataSet = {};
 
@@ -13,13 +13,14 @@ function getValueTextArea(event) {
   localStorage.setItem("feedback-form-state", JSON.stringify(formDataSet));
 }
 
-buttonSubmit.addEventListener('submit', onFormSubmit);
+buttonSubmit.addEventListener('click', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  console.log('Відправляємо форму');
+  console.log(formDataSet);
+  formValue.email.value = '';
+  formValue.message.value = '';
 
-  event.currentTarget.reset();
   localStorage.removeItem('feedback-form-state');
 };
 
@@ -31,10 +32,10 @@ function getValueLocalStorage() {
     formValue.email.value = formDataGet.email;
     formValue.message.value = formDataGet.message;
   } catch (error) {
-    console.log(error.name); // "SyntaxError"
-    console.log(error.message); // "Unexpected token u in JSON at position 1"
+    console.log(error.name); 
+    console.log(error.message); 
   }
   
-  console.log(formDataGet);
 };
 
+getValueLocalStorage();

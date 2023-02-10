@@ -13,7 +13,7 @@ function getValueTextArea(event) {
   localStorage.setItem("feedback-form-state", JSON.stringify(formDataSet));
 }
 
-buttonSubmit.addEventListener('click', onFormSubmit);
+buttonSubmit.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();

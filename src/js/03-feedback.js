@@ -5,7 +5,6 @@ const buttonSubmit = document.querySelector('button');
 
 let formDataSet = {};
 
-
 formValue.addEventListener('input', throttle(getValueTextArea, 500));
 
 function getValueTextArea(event) {
@@ -13,17 +12,6 @@ function getValueTextArea(event) {
   localStorage.setItem("feedback-form-state", JSON.stringify(formDataSet));
 }
 
-
-
-buttonSubmit.addEventListener('submit', onFormSubmit);
-
-function onFormSubmit(event) {
-  event.preventDefault();
-  console.log(formDataSet);
-  localStorage.removeItem('feedback-form-state');
-  formValue.reset();
-  formDataSet = {};
-};
 
 function getValueLocalStorage() {
 
@@ -40,3 +28,12 @@ function getValueLocalStorage() {
 };
 
 getValueLocalStorage();
+
+buttonSubmit.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(event) {
+  event.preventDefault();
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  localStorage.removeItem('feedback-form-state');
+  formValue.reset();
+};

@@ -15,11 +15,11 @@ function getValueTextArea(event) {
 
 const dataBackEnd = localStorage.getItem('feedback-form-state');
 
-buttonSubmit.addEventListener('click', onFormSubmit);
+buttonSubmit.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  console.log(JSON.parse(dataBackEnd)); 
+  console.log(formDataSet); 
   localStorage.removeItem('feedback-form-state');
   formValue.reset();
 };
